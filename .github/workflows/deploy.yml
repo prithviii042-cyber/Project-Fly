@@ -1,0 +1,23 @@
+name: Deploy Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  smoke-test-backend:
+    name: Smoke Test Backend (Railway)
+    runs-on: ubuntu-latest
+    if: ${{ secrets.RAILWAY_BACKEND_URL != '' }}
+    steps:
+      - name: Wait for Railway deploy
+        run: sleep 60
+
+      - name: Health check backend
+        run: |
+          curl -f "${{ secrets.RAILWAY_BACKEND_URL }}/health" \
+            -H "Accept: application/json" \
+            --retry 5 \
+            --retry-delay 10 \
+            --retry-connrefused \
+            -o /dev/null -s -w "HTTP %{http_code}\n"

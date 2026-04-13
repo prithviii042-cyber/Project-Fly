@@ -1,0 +1,25 @@
+[project]
+name = "project-fly-backend"
+version = "0.1.0"
+description = "Project Fly — AI agent backend"
+requires-python = ">=3.11"
+dependencies = [
+    "flask>=3.0.0",
+    "flask-cors>=6.0.0",
+    "anthropic>=0.40.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0.0",
+]
