@@ -1,30 +1,32 @@
 <template>
-  <div id="app">
-    <AgentChat />
-  </div>
+  <router-view />
 </template>
 
-<script setup>
-import AgentChat from './components/AgentChat.vue'
-</script>
-
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: #0f0f0f;
   color: #f0f0f0;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-#app {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* Shared button styles */
+.btn-primary {
+  background: #3a7bd5; color: #fff; border: none;
+  border-radius: 8px; padding: 9px 18px; font-size: 14px;
+  cursor: pointer; font-weight: 500; text-decoration: none;
+  display: inline-block; transition: background 0.2s;
 }
+.btn-primary:hover:not(:disabled) { background: #2d63b0; }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-ghost {
+  background: transparent; color: #aaa;
+  border: 1px solid #333; border-radius: 8px;
+  padding: 9px 18px; font-size: 14px; cursor: pointer;
+  text-decoration: none; display: inline-block; transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: #555; color: #f0f0f0; }
 </style>

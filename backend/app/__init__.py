@@ -19,8 +19,9 @@ def create_app(config_class=Config):
     CORS(app, resources={r"/api/*": {"origins": origins}})
 
     # Register blueprints
-    from .api import agent_bp
+    from .api import agent_bp, experiments_bp
     app.register_blueprint(agent_bp, url_prefix='/api/agent')
+    app.register_blueprint(experiments_bp, url_prefix='/api/experiments')
 
     @app.route('/health')
     def health():
