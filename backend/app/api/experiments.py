@@ -36,10 +36,6 @@ def _z_score(p1, n1, p2, n2):
 
 # ── Experiment CRUD ────────────────────────────────────────────
 
-@experiments_bp.before_app_request
-def setup_db():
-    """Ensure DB tables exist before first request."""
-    init_db()
 
 
 @experiments_bp.route('', methods=['GET'])
