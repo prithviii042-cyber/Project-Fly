@@ -2,16 +2,3 @@
   base    = "frontend"
   command = "npm install && npm run build"
   publish = "dist"
-
-# Proxy /api/* to Railway backend
-[[redirects]]
-  from   = "/api/*"
-  to     = "https://project-fly-production.up.railway.app/api/:splat"
-  status = 200
-  force  = true
-
-# SPA fallback
-[[redirects]]
-  from   = "/*"
-  to     = "/index.html"
-  status = 200
